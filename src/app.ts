@@ -1,13 +1,10 @@
-import {Observer} from './observer';
-import {Subject} from './subject';
+import {ProductUI} from './product.ui';
+import {ProductModel} from './product.model'
 
-const subject = new Subject();
-const observer = <Observer>{
-    update: () => console.log("First Observer Updated")
-};
-const observer2 = <Observer>{
-    update: () => console.log("Second Observer updated")
-};
-subject.attach(observer);
-subject.attach(observer2);
-subject.notify();
+let model = new ProductModel();
+
+const ui = new ProductUI(model);
+
+model.make = "Toyota";
+model.title  = "good title";
+
